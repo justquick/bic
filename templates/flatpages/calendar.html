@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content_title %}{{ flatpage.title }}{% endblock %}
+{% block extrahead %}
+<link rel='stylesheet' type='text/css' href='/media/css/fullcalendar.css' />
+<script type='text/javascript' src='/media/js/ui.core.js'></script>
+<script type='text/javascript' src='/media/js/ui.draggable.js'></script>
+<script type='text/javascript' src='/media/js/ui.resizable.js'></script>
+<script type='text/javascript' src='/media/js/fullcalendar.min.js'></script>
+<script type='text/javascript'>
+
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			events: "/events/events.json",
+		});
+		
+	});
+
+</script>
+{% endblock %}
+
+{% block content %}
+    {% load frontendadmin_tags %}
+    <h3>{% frontendadmin_change flatpage 'Edit this page' %}</h3>
+{{ flatpage.content }}
+<div id='loading' style='display:none'></div>
+<div id='calendar'></div>
+{% endblock %}

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load native flatblock_tags frontendadmin_tags %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Baltimore Interfaith Coalition | {% block title %}Welcome{% endblock %}</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="description" content="The Effervescent Collective strives to create and cultivate dances that are curious, clever, and impactful. They look for powerful, alternate ways to understand everyday rituals and popular culture." />
+    <meta name="keywords" content="dance, movement, performances" />
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <!--[if lte IE 7]><link href="css/iehacks.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if IE 6]>
+  <script type="text/javascript" src="/media/js/ie6pngfix.js"></script>
+  <script type="text/javascript">
+    DD_belatedPNG.fix('img, ul, ol, li, div, p, a, h1, h2, h3, h4, h5, h6');
+  </script>
+  <![endif]-->
+  {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+
+<div class="rapidxwpr floatholder">
+
+  <div id="header">
+  
+    <!--<a href="/"><img id="logo" class="correct-png" src="/media/images/logo.png" alt="Home" title="Home" /></a>-->
+    
+    <div id="topmenu">
+      <ul>
+      <li><a href="/" {% ifequal request.path '/' %}class="active"{% endifequal %}><span>Home</span></a></li>
+      <li><a href="/who-we-are/" {% ifequal request.path '/who-we-are/' %}class="active"{% endifequal %}><span>Who we are</span></a></li>
+      <li><a href="/what-we-do/" {% ifequal request.path '/what-we-do/' %}class="active"{% endifequal %}><span>What we do</span></a></li>
+      <li><a href="/events/" {% ifequal request.path '/events/' %}class="active"{% endifequal %}><span>Events</span></a></li>
+      <li><a href="/partners/" {% ifequal request.path '/partners/' %}class="active"{% endifequal %}><span>Partners</span></a></li>
+      <li><a href="/contact/" {% ifequal request.path '/contact/' %}class="active"{% endifequal %}><span>Contact us</span></a></li>
+      </ul>
+    </div>
+  
+  </div>
+  
+  <div id="middle">
+  
+    <div class="main-image">
+      <center>
+        <table width="100%">
+          <tr>
+            <td><img width="300" src="/media/images/biclogo.png" alt="Image" /></td>
+            <td width="100%"><center><h1>{% block content_title %}Welcome{% endblock %}</h1></center></td>
+          </tr>
+        </table>
+      </center>
+    </div>
+    
+    <div id="main" class="clearingfix">
+      <div id="mainmiddle" class="floatbox">
+      
+        <!-- right column 
+        <div id="right" class="clearingfix">
+        
+          <div class="benefits">
+            <div class="benefits-bg clearingfix">
+              <h3>BENEFITS OF GOING GREEN</h3>
+              <ul>
+                <li><a href="">Stats Tracker</a></li>
+                <li><a href="">10GB to 120GB Storage</a></li>
+                <li><a href="">1TB to 3TB Bandwidth</a></li>
+                <li><a href="">PHP5, MySQL</a></li>
+                <li><a href="">Satisfaction Guaranteed</a></li>
+                <li><a href="">2GB Dedicated RAM</a></li>
+              </ul>
+              <a href="" class="signup">sign up</a>
+            </div>
+          </div>
+        
+        </div>
+         / right column -->
+        
+        <div id="content" class="clearingfix">
+          {% block content %}
+          <div class="floatbox">
+          {% if request.user.is_authenticated %}
+          {% get_home_flatblock as home %}
+            <h3>{% frontendadmin_add flatpages 'Create new page' %} {% frontendadmin_change home 'Edit homepage' %}</h3>
+          {% else %}
+          {% endif %}
+           <!-- <div class="welcome">
+              <h1>YOUR <span>GREEN</span> BUSINESS</h1>
+              <h2>NEEDS OUR <span>GREEN</span> HOSTING</h2>
+              <p><a href="http://studio7designs.com">Green Hosting</a> is your best choice when you need environmentally consious <a href="http://arbutusphotography.com">business</a> and hosting services. We love to work with businesses with a concience. Your intro text will go here, giving a brief overview.</p>
+            </div> -->
+  
+  {% flatblock "home" %}
+  
+          
+          </div>
+          {% endblock %}
+        </div>
+      
+      </div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="rapidxwpr floatholder">
+  <div id="footer" class="clearingfix">
+  
+    <ul class="footermenu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/who-we-are/">About us</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    
+  </div>
+</div>				
+
+</body>
+</html>

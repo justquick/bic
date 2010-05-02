@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block content_title %}{{ flatpage.title }}{% endblock %}
+{% block content %}
+    {% load frontendadmin_tags native %}
+    {% get_staff as members %}
+    <h3>{% frontendadmin_change flatpage 'Edit this page' %} {% frontendadmin_add members 'Add a new member' %}</h3>
+    {{ flatpage.content }}
+{% endblock %}

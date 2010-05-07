@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-	
+<h3>{% frontendadmin_change event 'Edit this event' %}</h3>	
 	{% if event.has_passed %}
 		<p>This event is over.</p>
 	{% endif %}

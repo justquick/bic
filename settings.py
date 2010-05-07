@@ -161,6 +161,7 @@ FRONTEND_FORMS = {
     'blog.post': 'django_ext.forms.PostForm',
     'flatpages.flatpage': 'django_ext.forms.FlatPageForm',
     'flatblocks.flatblock': 'django_ext.forms.FlatBlockForm',
+    'events.event': 'django_ext.forms.EventForm',
 }
 
 def get_flatblock(context, **lookup):

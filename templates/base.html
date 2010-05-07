@@ -70,6 +70,7 @@
          / right column -->
         
         <div id="content" class="clearingfix">
+            <h1>{% block content_title %}{% endblock %}</h1>
           {% block content %}
           <div class="floatbox">
           {% if request.user.is_authenticated %}

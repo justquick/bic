@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load frontendadmin_tags %}
 {% block content %}
 <h3>{% frontendadmin_change event 'Edit this event' %}</h3>	
 	{% if event.has_passed %}

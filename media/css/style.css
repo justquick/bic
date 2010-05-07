@@ -2,7 +2,7 @@
 
 
 /* reset */
-body,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,blockquote,th,td{
+body,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,th,td{
     margin:0;
     padding:0;
 }

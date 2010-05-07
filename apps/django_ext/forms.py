@@ -4,7 +4,7 @@ from django.contrib.admin import widgets
 from django.contrib.flatpages.models import FlatPage
 from tinymce.widgets import TinyMCE
 from flatblocks.models import FlatBlock
-
+from events.models import Event
 
 class PostForm(forms.ModelForm):
     body = forms.CharField(widget=TinyMCE())
@@ -23,3 +23,9 @@ class FlatBlockForm(forms.ModelForm):
     
     class Meta:
         model = FlatBlock
+        
+class EventForm(forms.ModelForm):
+    description = forms.CharField(widget=TinyMCE())
+    
+    class Meta:
+        model = Event

@@ -176,10 +176,25 @@ def get_home_flatblock(context):
     return get_flatblock(context, slug='home')
 get_home_flatblock.takes_context = True
 
+def get_images():
+    from random import shuffle
+    I="""http://lh6.ggpht.com/_f3gaky_MG94/S-SkIEEF_AI/AAAAAAAAAvM/fPib5m_NA6k/s1024/Picture%20018.jpg
+    http://lh5.ggpht.com/_f3gaky_MG94/S-SkNF6MdjI/AAAAAAAAAvU/y8zUKzy-0i4/s1024/Picture%20020.jpg
+    http://lh5.ggpht.com/_f3gaky_MG94/S-SkSf8vroI/AAAAAAAAAvY/HuUtOTEgZ8I/s1024/Picture%20024.jpg
+    http://lh3.ggpht.com/_f3gaky_MG94/S-SkWBFCX5I/AAAAAAAAAvg/gJTnCDxy26k/s1024/Picture%20036.jpg
+    http://lh5.ggpht.com/_f3gaky_MG94/S-Ska9X1FnI/AAAAAAAAAvk/3Wbqggo5s2I/s1024/Picture%20038.jpg
+    http://lh4.ggpht.com/_f3gaky_MG94/S-SkgG9recI/AAAAAAAAAvs/iSnHNcqFsNM/s1024/Picture%20049.jpg
+    http://lh4.ggpht.com/_f3gaky_MG94/S-SklR4OzyI/AAAAAAAAAvw/_1Wl7pPkIfU/s1024/Picture%20054.jpg
+    http://lh4.ggpht.com/_f3gaky_MG94/S-SkqlaRjVI/AAAAAAAAAv0/WIA0kAP7sWk/s1024/Picture%20074.jpg
+    http://lh4.ggpht.com/_f3gaky_MG94/S-SkwAlP1-I/AAAAAAAAAv4/yFZ7FOWdPak/s1024/Picture%20075.jpg""".splitlines()
+    shuffle(I)
+    return I
+
 NATIVE_LIBRARY = {
     'function':{
         'get_home_flatblock': get_home_flatblock,
         'get_flatblock': get_flatblock,
+        'get_images':get_images,
     }
 }
 
